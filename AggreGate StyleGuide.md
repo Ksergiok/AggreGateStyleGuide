@@ -60,16 +60,17 @@
 При написании кода выражения необходимо использовать табуляцию для параметров, перечисленных в столбик, и вложенных функций.
 
 ``` java
-removeColumns(
-	filter(
-		getVariable(
-			"users.admin.models.storage"
-			,"operations"
-		)
-		,"{user} ==" + "'" + {user} + "'"
-	)
-	,"user"
+st("val", null) == null
+?
+aggregate(
+	table("<M=30>")  
+	,"{env/val} == null ? st('val', catch({.:info}, sleep(100))) : {env/val}"
+	,0
 )
+:
+""
+	
+
 ```
 
 ## Избегайте большой вложенности в выражениях
